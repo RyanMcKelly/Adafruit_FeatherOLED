@@ -1,6 +1,6 @@
 /**************************************************************************/
 /*!
-    @file     Adafruit_FeatherOLED_WiFi.h
+    @file     Adafruit_FeatherOLED.h
     @author   ktown
 
     @section LICENSE
@@ -34,48 +34,43 @@
 */
 /**************************************************************************/
 
-#ifndef _Adafruit_FeatherOLED_WiFi_H_
-#define _Adafruit_FeatherOLED_WiFi_H_
+#ifndef _Adafruit_FeatherOLED_H_
+#define _Adafruit_FeatherOLED_H_
 
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-#include <Adafruit_FeatherOLED.h>
 
-class Adafruit_FeatherOLED_WiFi : public Adafruit_FeatherOLED
+class McKelly_KegFeatherOLED : public Adafruit_SSD1306
 {
   protected:
-    bool    _connected;
-    bool    _connectedVisible;
-    int     _rssi;
-    bool    _rssiVisible;
-    int32_t _ipAddress;
-    bool    _ipAddressVisible;
+    float   _battery;
+    bool    _batteryIcon;
+    bool    _batteryVisible;
 
-    void renderRSSI       ( void );
-    void renderConnected  ( void );
-    void renderIPAddress  ( void );
+    void renderBattery    ( void );
 
   public:
+    enum
+    {
+      FOLED_BATTERYICON_NONE      = 0,       // Displays volts
+      FOLED_BATTERYICON_THREEBAR  = 1
+    };
 
     // Constructor
-    Adafruit_FeatherOLED_WiFi ( int reset = -1 ) : Adafruit_FeatherOLED(reset)
+    McKelly_KegFeatherOLED ( int reset = -1 ) : Adafruit_SSD1306(reset)
     {
-      _connected          = false;
-      _connectedVisible   = true;
-      _rssi               = -99;
-      _rssiVisible        = true;
-      _ipAddress          = 0;
-      _ipAddressVisible   = true;
+      _battery            = 0.0F;
+      _batteryIcon        = true;
+      _batteryVisible     = true;
     }
 
-    void setConnected        ( bool conn )      { _connected = conn; }
-    void setConnectedVisible ( bool enable )    { _connectedVisible = enable; }
-    void setRSSI             ( int rssi )       { _rssi = rssi; }
-    void setRSSIVisible      ( bool enable )    { _rssiVisible = enable; }
-    void setIPAddress        ( uint32_t addr )  { _ipAddress = addr; }
-    void setIPAddressVisible ( bool enable )    { _ipAddressVisible = enable; }
-    void refreshIcons  ( void );
+    void setBattery          ( float vbat )     { _battery = vbat; }
+    void setBatteryVisible   ( bool enable )    { _batteryVisible = enable; }
+    void setBatteryIcon      ( bool enable )    { _batteryIcon = enable; }
+
+    void init          ( void );
+    void clearMsgArea  ( void );
 };
 
-#endif /* _Adafruit_FeatherOLED_WiFi_H_ */
+#endif /* _Adafruit_FeatherOLED_H_ */

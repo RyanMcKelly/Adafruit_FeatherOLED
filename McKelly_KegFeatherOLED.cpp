@@ -40,7 +40,7 @@
     @brief  Renders the battery icon
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED::renderBattery ( void )
+void McKelly_KegFeatherOLED::renderBattery ( void )
 {
   #define BATTTEXT_STARTX     77
   #define BATTTEXT_STARTY     0
@@ -152,7 +152,7 @@ void Adafruit_FeatherOLED::renderBattery ( void )
     @brief  Initialises the display (always call this first!)
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED::init ( void )
+void McKelly_KegFeatherOLED::init ( void )
 {
   // Generate the high voltage from the 3.3v line internally and
   // initialize with the I2C addr 0x3C (for the 128x32)
@@ -168,7 +168,7 @@ void Adafruit_FeatherOLED::init ( void )
             cursor to 0, 8
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED::clearMsgArea ( void )
+void McKelly_KegFeatherOLED::clearMsgArea ( void )
 {
   fillRect(0, 8, 128, 16, BLACK);
   setCursor(0, 8);

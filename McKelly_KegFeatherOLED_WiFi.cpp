@@ -40,7 +40,7 @@
     @brief  Renders the RSSI icon
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED_WiFi::renderRSSI( void )
+void McKelly_KegFeatherOLED_WiFi::renderRSSI( void )
 {
   if (_rssiVisible)
   {
@@ -62,7 +62,7 @@ void Adafruit_FeatherOLED_WiFi::renderRSSI( void )
     @brief  Renders the connection status icon
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED_WiFi::renderConnected ( void )
+void McKelly_KegFeatherOLED_WiFi::renderConnected ( void )
 {
   if (_connectedVisible)
   {
@@ -83,7 +83,7 @@ void Adafruit_FeatherOLED_WiFi::renderConnected ( void )
     @brief  Renders the connection status icon
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED_WiFi::renderIPAddress ( void )
+void McKelly_KegFeatherOLED_WiFi::renderIPAddress ( void )
 {
   if (_ipAddressVisible)
   {
@@ -106,7 +106,7 @@ void Adafruit_FeatherOLED_WiFi::renderIPAddress ( void )
     @brief  Updates the OLED display
 */
 /******************************************************************************/
-void Adafruit_FeatherOLED_WiFi::refreshIcons ( void )
+void McKelly_KegFeatherOLED_WiFi::refreshIcons ( void )
 {
   fillRect(0, 0, 128, 8, BLACK);
   fillRect(0, 24, 128, 8, BLACK);

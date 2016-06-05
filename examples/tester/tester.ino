@@ -3,7 +3,7 @@
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_FeatherOLED.h>
 
-Adafruit_FeatherOLED oled = Adafruit_FeatherOLED();
+McKelly_KegFeatherOLED oled = McKelly_KegFeatherOLED();
 
 void setup()
 {
